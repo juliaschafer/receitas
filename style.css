@@ -320,6 +320,39 @@ ul, ol { list-style: none; }
   border-radius: 10px;
 }
 
+/* ── PANIFICADORA CARD ───────────────────────────────── */
+.panificadora-card {
+  background: var(--verde-claro);
+  border-radius: var(--radius-lg);
+  padding: 2rem 1.8rem 1.8rem;
+  text-align: center;
+  border: 2px solid rgba(61,107,79,.14);
+  position: relative;
+  overflow: hidden;
+  margin-bottom: 2rem;
+}
+
+.panificadora-image {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 15px;
+  border: 2px solid #fff;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+  margin: 0 auto 1.2rem auto;
+  display: block;
+}
+
+.panificadora-card blockquote {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 1rem;
+  color: var(--verde-escuro);
+  line-height: 1.7;
+  margin: 0;
+  padding: 0 0.8rem;
+}
+
 /* ── STATS BAR ───────────────────────────────────────── */
 .stats {
   background: var(--verde-escuro);
@@ -451,6 +484,7 @@ ul, ol { list-style: none; }
 }
 .card-thumb.salgado { background: var(--verde-claro); }
 .card-thumb.doce    { background: var(--laranja-claro); }
+.card-thumb.panificadora { background: #e3f2fd; }
 .card-badge {
   position: absolute;
   top: 11px;
