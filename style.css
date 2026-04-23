@@ -38,7 +38,10 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: center;
   display: block;
+  position: absolute;
+  inset: 0;
 }
 
 /* camada escura pra dar contraste */
@@ -154,7 +157,6 @@ ul, ol { list-style: none; }
     letter-spacing: 1px;
   }
 }
-/* ── HERO ────────────────────────────────────────────── */
 .hero {
   background: var(--verde-escuro);
   min-height: 86vh;
@@ -194,9 +196,9 @@ ul, ol { list-style: none; }
   padding: 6px 20px;
   border-radius: var(--radius-pill);
   margin-bottom: 1.6rem;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
+  white-space: normal;
+  word-break: break-word;
+  max-width: 100%;
 }
 @media (max-width: 480px) {
   .hero-badge {
@@ -381,7 +383,7 @@ ul, ol { list-style: none; }
   max-width: 820px;
   margin: 0 auto;
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   gap: 1.5rem;
   text-align: center;
 }
@@ -412,7 +414,7 @@ ul, ol { list-style: none; }
   
   .stats-inner {
     gap: 0;
-    grid-template-columns: repeat(3, 1fr) !important;
+    grid-template-columns: repeat(4, 1fr) !important;
     padding: 0 5px;
   }
 
@@ -421,9 +423,8 @@ ul, ol { list-style: none; }
     padding: 0 3px;
   }
 
-  /* Tamanhos menores, mas mantendo fonte, peso e cor originais */
   .stat-num {
-    font-size: 1.55rem;     /* menor só no celular */
+    font-size: 1.4rem;
     font-family: var(--font-serif);
     font-weight: 700;
     color: #fff;
@@ -432,9 +433,9 @@ ul, ol { list-style: none; }
   }
 
   .stat-label {
-    font-size: 0.62rem;
+    font-size: 0.58rem;
     font-weight: 600;
-    letter-spacing: 1.5px;
+    letter-spacing: 1px;
     text-transform: uppercase;
     color: rgba(255,255,255,.55);
     margin-top: 3px;
@@ -469,11 +470,27 @@ ul, ol { list-style: none; }
 /* ── GRID ────────────────────────────────────────────── */
 .receitas-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
   gap: 1.4rem;
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 2rem 5rem;
+}
+
+@media (max-width: 900px) {
+  .receitas-grid {
+    grid-template-columns: repeat(2, 1fr);
+    padding: 0 1.2rem 3.5rem;
+    gap: 1.1rem;
+  }
+}
+
+@media (max-width: 520px) {
+  .receitas-grid {
+    grid-template-columns: 1fr;
+    padding: 0 1rem 3rem;
+    gap: 1rem;
+  }
 }
 
 /* ── CARD ────────────────────────────────────────────── */
@@ -493,12 +510,14 @@ ul, ol { list-style: none; }
   border-color: rgba(61,107,79,.12);
 }
 .card-thumb {
-  height: 150px;
+  height: 190px;
   display: flex;
   align-items: center;
   justify-content: center;
   position: relative;
   font-size: 4rem;
+  overflow: hidden;
+  background: var(--creme-escuro);
 }
 .card-thumb.salgado { background: var(--verde-claro); }
 .card-thumb.doce    { background: var(--laranja-claro); }
@@ -817,9 +836,58 @@ footer p {
   .receita-content { grid-template-columns: 1fr; }
   .sidebar         { position: static; }
 }
+
+@media (max-width: 768px) {
+  .hero {
+    min-height: 70vh;
+    padding: 3.5rem 1.5rem 3rem;
+  }
+  .hero h1 {
+    font-size: clamp(2rem, 9vw, 3.2rem);
+  }
+  .hero-desc {
+    font-size: .96rem;
+  }
+  .btn-primary, .btn-outline {
+    font-size: .82rem;
+    padding: 11px 22px;
+  }
+  .section-header {
+    padding: 3.5rem 1.2rem 2rem;
+  }
+  .section-header h2 {
+    font-size: 1.8rem;
+  }
+  .historia {
+    padding: 4rem 1.5rem;
+  }
+  .historia-texto h2 {
+    font-size: 1.8rem;
+  }
+}
+
 @media (max-width: 640px) {
-  .stats-inner   { grid-template-columns: repeat(2, 1fr); }
-  .nav-links     { gap: 1rem; }
-  .nav-links a   { font-size: .72rem; }
-  .info-bar-inner{ gap: 1.5rem; }
+  .info-bar-inner { gap: 1.5rem; }
+  .nav { padding: 0 1rem; }
+}
+
+@media (max-width: 480px) {
+  .hero-badge {
+    font-size: .6rem;
+    padding: 5px 14px;
+    letter-spacing: 1.2px;
+  }
+  .nav-logo {
+    font-size: .88rem;
+  }
+  .nav-links a {
+    font-size: .65rem;
+    letter-spacing: .8px;
+  }
+  .nav-links {
+    gap: .7rem;
+  }
+  .card-thumb {
+    height: 160px;
+  }
 }
