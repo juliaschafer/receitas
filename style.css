@@ -373,20 +373,6 @@ ul, ol { list-style: none; }
   padding: 0 0.8rem;
 }
 
-/* ── STATS BAR ───────────────────────────────────────── */
-.stats {
-  background: var(--verde-escuro);
-  padding: 2.8rem 2rem;
-}
-
-.stats-inner {
-  max-width: 820px;
-  margin: 0 auto;
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 1.5rem;
-  text-align: center;
-}
 
 /* ====================== ESTILOS ORIGINAIS ====================== */
 .stat-num {
